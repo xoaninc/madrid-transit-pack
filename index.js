@@ -5,7 +5,7 @@
 	// Unidades del juego: velocidades en m/s, aceleraciones en m/s², longitudes en metros.
 	// 22.22 m/s = 80 km/h · 19.44 = 70 km/h · 38.89 = 140 km/h
 	//
-	// Datos reales (v0.9.2):
+	// Datos reales (v0.9.1):
 	// - Red Metro de Madrid: radio mínimo 90 m, pendiente máxima 5% (Normativa Técnica Básica de Vía, Metro de Madrid 2017)
 	// - S/3000: aceleración 1,0 m/s², 80 km/h, 6 coches = 89,38 m, 734 plazas (Vía Libre / Wikipedia)
 	// - S/8000-9000: 80 km/h, ~200 plazas/coche gálibo ancho (Wikipedia)
@@ -32,7 +32,7 @@
 				carCost: 2300000,
 				trainWidth: 2.3,
 				minStationLength: 64,
-				maxStationLength: 188,
+				maxStationLength: 94,
 				baseTrackCost: 27000,
 				baseStationCost: 45000000,
 				trainOperationalCostPerHour: 220,
@@ -83,7 +83,7 @@
 				carCost: 2800000,
 				trainWidth: 2.8,
 				minStationLength: 59,
-				maxStationLength: 226,
+				maxStationLength: 115,
 				baseTrackCost: 30000,
 				baseStationCost: 60000000,
 				trainOperationalCostPerHour: 250,
@@ -125,7 +125,7 @@
 				carCost: 3200000,
 				trainWidth: 2.65,
 				minStationLength: 37,
-				maxStationLength: 138,
+				maxStationLength: 70,
 				baseTrackCost: 16000,
 				baseStationCost: 4000000,
 				trainOperationalCostPerHour: 130,
@@ -172,7 +172,7 @@
 				carCost: 1300000,
 				trainWidth: 3.1,
 				minStationLength: 105,
-				maxStationLength: 408,
+				maxStationLength: 210,
 				baseTrackCost: 46750,
 				baseStationCost: 63750000,
 				trainOperationalCostPerHour: 520,
