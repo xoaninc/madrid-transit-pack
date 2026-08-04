@@ -11,10 +11,12 @@
 	//   de L1-L5 bajan a ~90 m), pendiente máxima 35 milésimas (3,5%), velocidad de diseño
 	//   110 km/h en líneas nuevas, pendiente nula en estaciones.
 	// - ETI/ADIF: andenes en curva de radio >= 300 m (proyectos de trazado de ADIF/Mitma).
-	//   Entrevía convencional ibérica: 3,808 m.
+	//   Entrevía convencional ibérica: 3,808 m. Entrevía del metro: no publicada;
+	//   derivada del gálibo oficial de túnel (estrecho 6,86 m -> ~3,30 m; ancho -> ~3,60 m).
 	// - S/3000: aceleración 1,0 m/s², 80 km/h, 6 coches = 89,38 m, 734 plazas (Vía Libre / Wikipedia)
 	// - S/8000-9000: hasta 110 km/h (7000/9000), ~200 plazas/coche gálibo ancho (Wikipedia)
-	// - Citadis 302: 32,5 m, 2,65 m, 70 km/h, radio mínimo 25 m (Alstom/Trainspo)
+	// - Citadis 302 de ML Madrid: 32,156 m, 2,40 m, 186 plazas (54 sentados), 70 km/h,
+	//   750 V, radio mínimo 25 m (dossier Vía Libre / Alstom)
 	// - S/452 (Alstom X'Trapolis): 140 km/h, caja de 3,10 m, 905-927 plazas por unidad
 	//   de 100 m (6 coches, 2 de dos pisos), trenes de 100 o 200 m (Wikipedia/Geotren)
 
@@ -43,7 +45,7 @@
 				trainOperationalCostPerHour: 220,
 				carOperationalCostPerHour: 22,
 				stopTimeSeconds: 20,
-				parallelTrackSpacing: 3.4,
+				parallelTrackSpacing: 3.3,
 				trackClearance: 0.9,
 				maxLateralAcceleration: 1,
 				minTurnRadius: 90,
@@ -94,7 +96,7 @@
 				trainOperationalCostPerHour: 250,
 				carOperationalCostPerHour: 25,
 				stopTimeSeconds: 22,
-				parallelTrackSpacing: 3.81,
+				parallelTrackSpacing: 3.6,
 				trackClearance: 1,
 				maxLateralAcceleration: 1,
 				minTurnRadius: 300,
@@ -116,19 +118,19 @@
 			id: "madrid-metro-ligero",
 			name: "Metro Ligero",
 			description:
-				"Metro Ligero de Madrid (ML1-ML3). Basado en el Alstom Citadis 302: unidades articuladas de 32,5 m y 2,65 m de ancho, en simple o doble composición, 70 km/h. Radio mínimo real de 25 m (exento de la norma de 90 m de la red de metro) y rampas de hasta 6,5%. Puede circular en superficie compartiendo calle y cruzar a nivel.",
+				"Metro Ligero de Madrid (ML1-ML3). Basado en el Alstom Citadis 302: unidades articuladas de 32,16 m y 2,40 m de ancho (más estrechas que el Citadis estándar para el gálibo madrileño), 186 plazas por unidad, en simple o doble composición, 70 km/h y 750 V. Radio mínimo real de 25 m (exento de la norma de 90 m de la red de metro) y rampas de hasta 6,5%. Puede circular en superficie compartiendo calle y cruzar a nivel.",
 			stats: {
 				maxAcceleration: 1.03,
 				maxDeceleration: 1.5,
 				maxSpeed: 19.44,
 				maxSpeedLocalStation: 10,
-				capacityPerCar: 200,
-				carLength: 32.5,
+				capacityPerCar: 186,
+				carLength: 32.16,
 				minCars: 1,
 				maxCars: 2,
 				carsPerCarSet: 1,
 				carCost: 3200000,
-				trainWidth: 2.65,
+				trainWidth: 2.4,
 				minStationLength: 37,
 				maxStationLength: 70,
 				baseTrackCost: 16000,
