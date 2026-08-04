@@ -2,7 +2,7 @@
     "id": "madrid-transit-pack",
     "name": "Madrid Transit Pack",
     "description": "Standardized Madrid train types by network: Metro narrow-profile (S/3000), Metro wide-profile (S/8000-9000), Metro Ligero (Citadis 302) and Cercanías (S/452 X'Trapolis). Real-world specs (gradients, speeds, radii, platform lengths) from official technical norms. One type per network instead of per-model, so branches between lines of the same network are fully compatible.",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "author": {
         "name": "xoaninc",
         "url": "https://github.com/xoaninc"

@@ -5,10 +5,15 @@
 	// Unidades del juego: velocidades en m/s, aceleraciones en m/s², longitudes en metros.
 	// 22.22 m/s = 80 km/h · 19.44 = 70 km/h · 38.89 = 140 km/h
 	//
-	// Datos reales (v0.9.1):
-	// - Red Metro de Madrid: radio mínimo 90 m, pendiente máxima 5% (Normativa Técnica Básica de Vía, Metro de Madrid 2017)
+	// Datos reales (v0.9.2):
+	// - Norma MM-DT-0-01 'Geometría de Vía' de Metro de Madrid (feb 2004, vía alamys.org):
+	//   radio mínimo 300 m en líneas nuevas / 210 m en ampliaciones (las curvas históricas
+	//   de L1-L5 bajan a ~90 m), pendiente máxima 35 milésimas (3,5%), velocidad de diseño
+	//   110 km/h en líneas nuevas, pendiente nula en estaciones.
+	// - ETI/ADIF: andenes en curva de radio >= 300 m (proyectos de trazado de ADIF/Mitma).
+	//   Entrevía convencional ibérica: 3,808 m.
 	// - S/3000: aceleración 1,0 m/s², 80 km/h, 6 coches = 89,38 m, 734 plazas (Vía Libre / Wikipedia)
-	// - S/8000-9000: 80 km/h, ~200 plazas/coche gálibo ancho (Wikipedia)
+	// - S/8000-9000: hasta 110 km/h (7000/9000), ~200 plazas/coche gálibo ancho (Wikipedia)
 	// - Citadis 302: 32,5 m, 2,65 m, 70 km/h, radio mínimo 25 m (Alstom/Trainspo)
 	// - S/452 (Alstom X'Trapolis): 140 km/h, caja de 3,10 m, 905-927 plazas por unidad
 	//   de 100 m (6 coches, 2 de dos pisos), trenes de 100 o 200 m (Wikipedia/Geotren)
@@ -18,7 +23,7 @@
 			id: "madrid-metro-estrecho",
 			name: "Metro Madrid (perfil estrecho)",
 			description:
-				"Red de gálibo estrecho de Metro de Madrid (L1-L5 y Ramal). Basado en la Serie 3000 de CAF: caja de 2,30 m, coches de 14,9 m en composiciones de 4-6 (59,94-89,38 m reales) para andenes de 64-94 m (los 60-90 m reales mas el margen de 4 m que exige el juego). Radio mínimo 90 m y pendiente máxima 5%, según la normativa técnica real de Metro de Madrid. Túneles más baratos por el gálibo reducido (6,86 m). Los ramales entre líneas de esta red son totalmente compatibles.",
+				"Red de gálibo estrecho de Metro de Madrid (L1-L5 y Ramal). Basado en la Serie 3000 de CAF: caja de 2,30 m, coches de 14,9 m en composiciones de 4-6 (59,94-89,38 m reales) para andenes de 64-94 m (los 60-90 m reales mas el margen de 4 m que exige el juego). Curvas históricas de hasta 90 m de radio (la norma moderna MM-DT-0-01 exige 210-300 m en trazado nuevo) y pendiente máxima real de 35 milésimas (3,5%). Túneles más baratos por el gálibo reducido (6,86 m). Los ramales entre líneas de esta red son totalmente compatibles.",
 			stats: {
 				maxAcceleration: 1.0,
 				maxDeceleration: 1.2,
@@ -42,8 +47,8 @@
 				trackClearance: 0.9,
 				maxLateralAcceleration: 1,
 				minTurnRadius: 90,
-				minStationTurnRadius: 400,
-				maxSlopePercentage: 5,
+				minStationTurnRadius: 300,
+				maxSlopePercentage: 3.5,
 				trackMaintenanceCostPerMeter: 160,
 				stationMaintenanceCostPerYear: 140000,
 				tphLimit: 42,
@@ -69,11 +74,11 @@
 			id: "madrid-metro-ancho",
 			name: "Metro Madrid (gran perfil)",
 			description:
-				"Red de gran perfil de Metro de Madrid (L6-L12). Basado en las Series 8000/9000: caja de 2,80 m, coches de ~18 m en composiciones de 3-6 para andenes de hasta 115 m como los de la L10. Radio mínimo 90 m y pendiente máxima 5%, según la normativa técnica real de Metro de Madrid.",
+				"Red de gran perfil de Metro de Madrid (L6-L12). Basado en las Series 8000/9000: caja de 2,80 m, coches de ~18 m en composiciones de 3-6 para andenes de hasta 115 m como los de la L10. Red moderna: 110 km/h de velocidad de diseño, radio mínimo 300 m y pendiente máxima 3,5% según la norma MM-DT-0-01 de Metro de Madrid.",
 			stats: {
 				maxAcceleration: 1.0,
 				maxDeceleration: 1.2,
-				maxSpeed: 22.22,
+				maxSpeed: 30.55,
 				maxSpeedLocalStation: 13,
 				capacityPerCar: 200,
 				carLength: 18.15,
@@ -92,9 +97,9 @@
 				parallelTrackSpacing: 3.81,
 				trackClearance: 1,
 				maxLateralAcceleration: 1,
-				minTurnRadius: 90,
-				minStationTurnRadius: 400,
-				maxSlopePercentage: 5,
+				minTurnRadius: 300,
+				minStationTurnRadius: 300,
+				maxSlopePercentage: 3.5,
 				trackMaintenanceCostPerMeter: 180,
 				stationMaintenanceCostPerYear: 160000,
 				tphLimit: 42,
@@ -158,7 +163,7 @@
 			id: "renfe-cercanias",
 			name: "Cercanías Madrid",
 			description:
-				"Red de Cercanías de Madrid. Basado en la Serie 452 real de Renfe (Alstom X'Trapolis, entregas 2025-2026): unidades de 6 coches y 100 m con 2 coches centrales de dos pisos, ~905 plazas por unidad, caja de 3,10 m y 140 km/h. Trenes de 100 o 200 m (1 o 2 unidades). Pendiente máxima 3% (estimación de proyecto; sin dato oficial publicado). Admite pasos a nivel. Toda la red de Cercanías es interoperable entre sí.",
+				"Red de Cercanías de Madrid. Basado en la Serie 452 real de Renfe (Alstom X'Trapolis, entregas 2025-2026): unidades de 6 coches y 100 m con 2 coches centrales de dos pisos, ~905 plazas por unidad, caja de 3,10 m y 140 km/h. Trenes de 100 o 200 m (1 o 2 unidades). Pendiente máxima 3,5%, andenes en curva de radio >= 300 m según las ETI (dato de proyectos ADIF) y entrevía convencional de 3,808 m. Admite pasos a nivel. Toda la red de Cercanías es interoperable entre sí.",
 			stats: {
 				maxAcceleration: 1.0,
 				maxDeceleration: 1.0,
@@ -179,11 +184,11 @@
 				carOperationalCostPerHour: 52,
 				scissorsCrossoverCost: 12750000,
 				stopTimeSeconds: 40,
-				parallelTrackSpacing: 3.76,
+				parallelTrackSpacing: 3.808,
 				trackClearance: 1.86,
 				maxLateralAcceleration: 1.68,
-				minTurnRadius: 90,
-				minStationTurnRadius: 1400,
+				minTurnRadius: 250,
+				minStationTurnRadius: 300,
 				maxSlopePercentage: 3.5,
 				trackMaintenanceCostPerMeter: 200,
 				stationMaintenanceCostPerYear: 50000,
