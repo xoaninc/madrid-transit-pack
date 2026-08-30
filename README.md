@@ -31,7 +31,7 @@
 
 > **Aviso para quien verifique estos datos:** el tipo de Cercanías modela la **Serie 452** (140 km/h, 100 m, ~905 plazas por unidad), no la **450** (759 plazas, 106-159 m). Una revisión previa de este pack lo auditó contra la 450 y marcó como erróneos varios valores que son correctos para la 452.
 
-Detalles con sabor real: el perfil estrecho tiene túneles más baratos (gálibo de 6,86 m), el Metro Ligero puede circular por la calle y cruzar a nivel, la S/452 conserva su caja de 3,10 m (16 cm más ancha que un Civia) y ~905 plazas por unidad de 100 m, con 2 coches de dos pisos.
+Detalles con sabor real: el perfil estrecho sale más barato de tunelar por el gálibo reducido (6,86 m), el Metro Ligero puede circular por la calle y cruzar a nivel, la S/452 conserva su caja de 3,10 m (16 cm más ancha que un Civia) y ~905 plazas por unidad de 100 m, con 2 coches de dos pisos.
 
 ## Instalación / Install
 
@@ -39,6 +39,30 @@ Copia la carpeta `madrid-transit-pack` en el directorio de mods de Subway Builde
 
 - **macOS**: `~/Library/Application Support/metro-maker4/mods/`
 - **Windows**: `%APPDATA%/metro-maker4/mods/`
+
+## Migración de líneas / Line migration (v0.12.0)
+
+**[ES]** El pack incluye una herramienta que **migra líneas existentes a otro tipo de tren de verdad** — lo que el conversor del juego (flag `ROUTE_TYPE_CONVERSION`) no hace, porque solo reetiqueta y aborta si un andén se queda corto por centímetros.
+
+- **Dónde**: en el **menú de inicio** (botón «Migrar líneas»), con la partida sin cargar. El panel de la barra dentro de la partida es solo diagnóstico: te dice, por línea y destino, si el tren cabe físicamente y cuántas vías incumplen radio o pendiente, y trae un atajo para encender el flag del conversor del juego.
+- **Qué hace**: retipa la vía y sus grupos completos; lleva los **andenes al máximo del tipo destino** (solo los acorta si lo superan) redistribuyendo el trazado existente, sin inventar geometría; **regenera las bretelles** con el generador exacto del juego y las ensancha si el radio del destino no cabe en su ventana; adapta curvas y pendientes que incumplan la norma del tipo (con la regla real de estación: desnivel ≤ 0,1 m); **borra los trenes** de la línea y la deja parada (0 trenes, sin horario); y escribe una **partida nueva** — jamás pisa la original.
+- **Flota**: por defecto los coches de los trenes borrados **se conservan en propiedad**, igual que hace el juego (no cuestan mantenimiento). Opcionalmente se reembolsan a precio de compra.
+- **Líneas que comparten vía o estación** (p. ej. dos Cercanías por el mismo corredor): la herramienta lo detecta y ofrece migrar **todas juntas al mismo destino, o ninguna**.
+- **Si algo no se puede resolver** (un andén donde el tren no cabe, una curva imposible dentro de la correa de 15 m, una bretelle quad), se lista en el plan y el botón de migrar solo se desbloquea con una casilla de aceptación explícita. Con la casilla de «bajar coches», las composiciones que no quepan se reducen automáticamente a las que sí.
+- **Varias líneas**: «Aplicar y migrar otra línea» encadena migraciones en memoria y escribe **un solo fichero** al final (p. ej. `sevilla-T1+T2-metro-ligero`).
+- **Después de migrar**: construye un tramo de vía cualquiera (puedes borrarlo después) antes de asignar trenes — eso hace que el juego recalcule recorridos y tiempos, que hasta entonces siguen siendo los del tipo antiguo. La miniatura y la cámara se regeneran al primer guardado; si la partida original tenía timelapse, sus fotogramas no se conservan.
+
+![Plan de migración / Migration plan](docs/migracion-plan.png)
+
+**[EN]** The pack ships a tool that **actually migrates existing lines to another train type** — which the game's converter (the `ROUTE_TYPE_CONVERSION` flag) does not: it only relabels, and aborts if any platform is centimetres too short.
+
+- **Where**: in the **main menu** ("Migrate lines" button), with no save loaded. The in-game toolbar panel is diagnosis only: per line and target it tells you whether the train physically fits and how many tracks violate the target's radius or gradient, plus a shortcut to turn on the game's converter flag.
+- **What it does**: retypes the track and its full groups; brings **platforms to the target type's maximum** (only shortens those above it) by redistributing existing alignment — no invented geometry; **regenerates crossovers** with the game's exact generator, widening their window when the target radius needs it; conforms curves and gradients to the type's standard (including the real station rule: ≤ 0.1 m of level difference); **deletes the line's trains** and leaves it stopped; and writes a **new save** — never over the original.
+- **Fleet**: by default the deleted trains' cars **stay owned**, as the game itself behaves (owned stock has no upkeep). Optionally they are refunded at purchase price.
+- **Lines sharing track or stations**: detected; you migrate **all of them to the same target, or none**.
+- **Anything unsolvable** is listed in the plan, and the migrate button only unlocks behind an explicit acceptance checkbox. The "shorten trains" option reduces consists that would not fit.
+- **Several lines**: \u201cApply and migrate another line\u201d chains migrations in memory and writes **a single file** at the end (e.g. `sevilla-T1+T2-metro-ligero`).
+- **After migrating**: build any piece of track (you may delete it afterwards) before assigning trains — that makes the game recompute routes and timings, which until then remain those of the old type. Thumbnail and camera regenerate on first save; timelapse frames are not kept.
 
 ## Fuentes / Sources
 
@@ -54,6 +78,8 @@ Copia la carpeta `madrid-transit-pack` en el directorio de mods de Subway Builde
 
 Los costes de construcción y algunos parámetros de juego (tph, coste de estaciones y de vía) están equilibrados contra los tipos vanilla de Subway Builder, no son datos reales.
 
+**El motor no admite curvas de coste por tipo.** Hasta la v0.10.0 tres de los cuatro tipos declaraban `elevationMultipliers` para que, por ejemplo, el túnel de gálibo estrecho costase menos que el de gran perfil. Subway Builder **no lee ese campo**: la cadena aparece dos veces en todo el binario de la 1.6.0 y ambas son el dato del tranvía vanilla, y el parámetro de tipo de tren de `getElevationMultiplier` es vestigial. Los cuatro tipos cobran siempre la misma tabla global (`4,5 / 2 / 1 / 0,5 / 0,35 / 0,5 / 0,8` de bore profundo a viaducto), así que la única diferencia real de coste entre redes es su `baseTrackCost`. Los bloques se han retirado en la v0.12.0 para que el código no prometa lo que el juego no cumple.
+
 ### Mantenimiento a paridad vanilla (desde v0.10.0)
 
 El motor define `MAINTENANCE_COST_MULTIPLIER = 2` **incrustado dentro de las definiciones de los tipos vanilla**, y no lo aplica a los tipos que registran los mods. Hasta la v0.9.4 este pack usaba los valores sin doblar, así que sus cuatro redes costaban entre el 44 % y el 67 % de mantener que su equivalente del juego base — y la estación de Cercanías, un 15,6 %, pese a costar 63,75 M€ construirla. Desde la v0.10.0 van ya a la par:
@@ -66,6 +92,12 @@ El motor define `MAINTENANCE_COST_MULTIPLIER = 2` **incrustado dentro de las def
 | `renfe-cercanias` | 300 | 320.000 | `commuter-rail`, paridad exacta |
 
 ⚠️ **Si vienes de la v0.9.4 con una partida en curso**, el mantenimiento sube ×2 en las cuatro redes. En Cercanías la estación sube ×6,4 (50.000 → 320.000), aunque el total de una línea realista queda en el mismo orden que el resto: 12 estaciones y 25 km pasan de 5,60 a 11,34 M€/año (×2,02), porque la vía domina el gasto.
+
+## Aviso importante / Important warning
+
+**[ES]** Si construyes líneas con estos tipos y después desactivas o desinstalas el mod, **esa partida deja de cargar**. El juego resuelve el tipo de tren por id y no tiene reserva para uno desconocido: la carga aborta a medias con «Error loading save». No hay reparación posible desde el juego. Antes de quitar el mod, pasa esas líneas a un tipo del juego base con el conversor del propio juego (flag `ROUTE_TYPE_CONVERSION`; el panel del pack trae un atajo para encenderlo) o guarda una copia.
+
+**[EN]** If you build lines with these types and later disable or uninstall the mod, **that save will no longer load**. Train types resolve by id and there is no fallback for an unknown one: the load aborts halfway with "Error loading save", and the game offers no repair path. Move those lines to a built-in type with the game's own converter (the `ROUTE_TYPE_CONVERSION` flag; the pack's panel has a shortcut to enable it), or keep a backup, before removing the mod.
 
 ## Créditos / Credits
 
