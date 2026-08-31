@@ -22,5 +22,8 @@
         "trains"
     ],
     "minGameVersion": "1.6.0",
+    "dependencies": {
+        "subway-builder": ">=1.6.0"
+    },
     "homepage": "https://github.com/xoaninc/madrid-transit-pack"
 }
