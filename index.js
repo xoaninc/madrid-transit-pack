@@ -63,7 +63,7 @@
 		"type.cercanias.name": "Cercanías Madrid",
 		"type.estrecho.desc": "Red de gálibo estrecho de Metro de Madrid (L1-L5 y Ramal). Basado en la Serie 3000 de CAF: caja de 2,30 m, coches de 14,9 m en composiciones de 4 o 6 (59,6-89,4 m en juego; el tren real mide 59,94-89,38 m) para andenes de 60-94 m (los reales son de 60 y 90 m; nota: el preview de construcción muestra la capacidad con un margen de 4 m que la estación construida no aplica, así que un andén de 90 m opera con 6 coches aunque el preview diga 4). Curvas históricas de hasta 90 m de radio (la norma moderna MM-DT-0-01 exige 210-300 m en trazado nuevo) y pendiente de hasta 5,2%: la del Ramal Ópera-Príncipe Pío (52,06 milésimas) en servicio comercial, muy por encima del 3,5% de criterio de proyecto. Túneles más baratos por el gálibo reducido (6,86 m). Los ramales entre líneas de esta red son totalmente compatibles.",
 		"type.ancho.desc": "Red de gran perfil de Metro de Madrid (L6-L12). Basado sobre todo en la Serie 8000, con la que cuadran los 18,15 m y las ~200 plazas por coche (la 9000 de AnsaldoBreda tiene cotas algo distintas): caja de 2,80 m, coches de 18,15 m en composiciones de 3 o 6 para andenes de hasta 115 m como los de la L10. Red moderna: 110 km/h de velocidad de servicio (120 de fábrica) y radio de proyecto de 300 m según MM-DT-0-01, pero el tipo permite el radio de 250 m y la pendiente del 4% que la red usa de verdad como excepción (conexión L8-L10, prolongación de L7 a Pitis bajo la M-30, L9 Pavones-Puerta de Arganda).",
-		"type.ligero.desc": "Metro Ligero de Madrid (ML1-ML3). Basado en el Alstom Citadis 302: unidades articuladas de 32,16 m y 2,40 m de ancho (más estrechas que el Citadis estándar para el gálibo madrileño), 186 plazas por unidad, en simple o doble composición, 70 km/h y 750 V. Radio mínimo de 25 m, muy por debajo de los 90 m de las curvas más cerradas del metro, y rampas de hasta 6,5% (estimación: los Citadis admiten del 6 al 8%, pero no hay cifra oficial publicada de ML1-ML3). Puede circular en superficie compartiendo calle y cruzar a nivel.",
+		"type.ligero.desc": "Metro Ligero de Madrid (ML1-ML3). Basado en el Alstom Citadis 302: unidades articuladas de 32,16 m y 2,40 m de ancho (más estrechas que el Citadis estándar para el gálibo madrileño), 186 plazas por unidad, en simple o doble composición, 70 km/h y 750 V. Radio mínimo de 25 m, muy por debajo de los 90 m de las curvas más cerradas del metro, y rampas de hasta 6,5% (estimación: los Citadis admiten del 6 al 8%, pero no hay cifra oficial publicada de ML1-ML3). Circula en superficie por plataforma reservada —segregada, no en tráfico mixto— y cruza a nivel.",
 		"type.cercanias.desc": "Red de Cercanías de Madrid. Basado en la Serie 452 real de Renfe (Alstom X'Trapolis, entregas 2025-2026): unidades de 6 coches y 100 m con 2 coches centrales de dos pisos, ~905 plazas por unidad, caja de 3,10 m y 140 km/h. Trenes de 100 o 200 m (1 o 2 unidades); los 16,67 m y las 151 plazas por coche son promedios de la unidad, no cotas reales de coche. Pendiente máxima 3,5%, radio de vía de 250 m y andenes en curva de radio >= 300 m —ambos criterio propio: el mínimo ETI de líneas nuevas es 150 m y no hay regla publicada de 300 m para andenes— y entrevía convencional de 3,808 m. Admite pasos a nivel. Toda la red de Cercanías es interoperable entre sí.",
 		"mig.menuButton": "Migrar líneas a tipos de Madrid",
 		"mig.title": "Migración de líneas",
@@ -148,7 +148,9 @@
 		"panel.footer": "La conversión del juego no toca los trenes ya generados ni el material comprado: borra los trenes de la línea antes de convertir y compra material del tipo nuevo después. La migración completa está en el menú de inicio.",
 		"mig.headNote": "La miniatura y la cámara se regeneran al guardar dentro del juego; si la original tenía timelapse, sus fotogramas no se conservan.",
 		"mig.autosave": "autoguardado",
-		"mig.oldSave": "Partida con esquema v{v}: la migración necesita v3. Ábrela y guárdala una vez dentro del juego para actualizarla.",
+		"mig.oldSave": "Partida con esquema v{v}: la migración necesita v3 o posterior. Ábrela y guárdala una vez dentro del juego para actualizarla.",
+		"mig.editSession": "Esta partida se guardó con una edición de vía a medias (las líneas afectadas están en pausa). Ábrela en el juego, confirma o deshaz esa edición, vuelve a guardar y reintenta: si migrásemos ahora, al cerrar la edición el juego restauraría la vía del tipo antiguo encima de la línea ya migrada.",
+		"mig.blueprints": "Blueprints con vía del tipo antiguo (no se tocan; reconstrúyelos si los quieres del tipo nuevo)",
 		"mig.tooShort": "El tren no cabe físicamente en estos andenes",
 		"mig.failed": "No se han podido resolver",
 		"mig.saved": "Partida migrada y guardada.",
@@ -158,7 +160,7 @@
 		"mig.flagOn": "Activar la conversión rápida del juego",
 		"mig.flagIsOn": "La conversión rápida del juego está activa.",
 		"mig.flagRestart": "Activada. Reinicia el juego para que surta efecto.",
-		"mig.flagWhat": "Función experimental del juego, apagada de fábrica y sin acceso desde los menús en la versión estable. Solo reetiqueta: no toca andenes, ni geometría, ni trenes."
+		"mig.flagWhat": "Función experimental del juego, apagada de fábrica y sin acceso desde los menús en la versión estable. Solo reetiqueta: no toca andenes, ni geometría, ni trenes. (Aparte de esto, la 1.7 permite cambiar el tipo de una línea recién creada sin ningún flag; esto es para las que ya están en servicio.)"
 	};
 	const STRINGS_EN = {
 		"type.estrecho.name": "Madrid Metro (narrow profile)",
@@ -167,7 +169,7 @@
 		"type.cercanias.name": "Cercanías Madrid (commuter rail)",
 		"type.estrecho.desc": "The narrow-profile network of the Madrid Metro (L1-L5 and the Ramal). Based on CAF's Serie 3000: a 2.30 m body and 14.9 m cars in 4- or 6-car sets (59.6-89.4 m in game; the real train is 59.94-89.38 m) for 60-94 m platforms — the real ones are 60 and 90 m. Note that the construction preview applies a 4 m margin the built station does not, so a 90 m platform runs 6 cars even though the preview says 4. Historic curves down to 90 m radius, well below the 210-300 m the modern MM-DT-0-01 standard requires for new alignments, and gradients up to 5.2%: the Ópera-Príncipe Pío Ramal runs 52.06 per mille in commercial service, far above the 3.5% design criterion. Cheaper per metre than the wide profile thanks to the reduced 6.86 m tunnel gauge. Branches between lines of this network are fully compatible.",
 		"type.ancho.desc": "The wide-profile network of the Madrid Metro (L6-L12). Modelled mainly on the Serie 8000, which is what the 18.15 m cars and ~200 seats match — the AnsaldoBreda 9000 has slightly different dimensions: a 2.80 m body and 18.15 m cars in 3- or 6-car sets for platforms up to 115 m, like those on L10. A modern network: 110 km/h in service (120 as built) and a 300 m design radius per MM-DT-0-01, but the type allows the 250 m radius and the 4% gradient the network actually uses as exceptions — the L8-L10 link, the L7 extension to Pitis under the M-30, and L9 between Pavones and Puerta de Arganda.",
-		"type.ligero.desc": "Madrid's Metro Ligero (ML1-ML3). Based on the Alstom Citadis 302: articulated 32.16 m units, 2.40 m wide — narrower than the standard Citadis, for the Madrid loading gauge — seating 186, running singly or in pairs at 70 km/h on 750 V. A 25 m minimum radius, far tighter than the 90 m of the sharpest metro curves, and gradients up to 6.5% (an estimate: Citadis units handle 6 to 8%, but no official figure is published for ML1-ML3). Can run on the surface sharing the street and cross at grade.",
+		"type.ligero.desc": "Madrid's Metro Ligero (ML1-ML3). Based on the Alstom Citadis 302: articulated 32.16 m units, 2.40 m wide — narrower than the standard Citadis, for the Madrid loading gauge — seating 186, running singly or in pairs at 70 km/h on 750 V. A 25 m minimum radius, far tighter than the 90 m of the sharpest metro curves, and gradients up to 6.5% (an estimate: Citadis units handle 6 to 8%, but no official figure is published for ML1-ML3). Runs on the surface on its own reserved right of way — segregated, not in mixed traffic — and crosses at grade.",
 		"type.cercanias.desc": "Madrid's Cercanías commuter network. Based on Renfe's real Serie 452 (Alstom X'Trapolis, delivered 2025-2026): 6-car, 100 m units with two double-deck centre cars, ~905 seats per unit, a 3.10 m body and 140 km/h. Trains of 100 or 200 m, one or two units; the 16.67 m and 151 seats per car are unit averages, not real per-car figures. Maximum gradient 3.5%, 250 m track radius and platforms on curves of 300 m or more — both house rules: the TSI minimum for new lines is 150 m and there is no published 300 m platform rule. Conventional Iberian track spacing of 3.808 m. Level crossings allowed. The whole Cercanías network is interoperable with itself.",
 		"mig.menuButton": "Migrate lines to Madrid types",
 		"mig.title": "Line migration",
@@ -252,7 +254,9 @@
 		"panel.footer": "The game\u2019s conversion touches neither spawned trains nor purchased stock: delete the line\u2019s trains before converting and buy stock of the new type afterwards. The full migration is in the main menu.",
 		"mig.headNote": "Thumbnail and camera regenerate on the first save in game; if the original had a timelapse, its frames are not kept.",
 		"mig.autosave": "autosave",
-		"mig.oldSave": "Save with schema v{v}: migration needs v3. Load and save it once in game to upgrade it.",
+		"mig.oldSave": "Save with schema v{v}: migration needs v3 or later. Load and save it once in game to upgrade it.",
+		"mig.editSession": "This save was written with a track edit session open (its affected routes are paused). Open it in game, commit or undo that edit, save again and retry: migrating now would let the game restore old-type track over the migrated line when the session is closed.",
+		"mig.blueprints": "Blueprints holding track of the old type (left untouched; rebuild them if you want the new type)",
 		"mig.tooShort": "The train physically does not fit these platforms",
 		"mig.failed": "Could not be resolved",
 		"mig.saved": "Save migrated and written.",
@@ -262,7 +266,7 @@
 		"mig.flagOn": "Turn on the game's quick conversion",
 		"mig.flagIsOn": "The game's quick conversion is on.",
 		"mig.flagRestart": "Turned on. Restart the game for it to take effect.",
-		"mig.flagWhat": "Experimental game feature, off by default and with no menu access in the stable build. It only retypes: it does not touch platforms, geometry or trains."
+		"mig.flagWhat": "Experimental game feature, off by default and with no menu access in the stable build. It only retypes: it does not touch platforms, geometry or trains. (Separately, 1.7 lets you change the type of a just-created line with no flag at all; this is for lines already in service.)"
 	};
 
 	let t = (k) => STRINGS_ES[k] || k;
@@ -302,9 +306,29 @@
 				trainOperationalCostPerHour: 220,
 				carOperationalCostPerHour: 22,
 				stopTimeSeconds: 20,
+				turnaroundTimeSeconds: 60,
 				parallelTrackSpacing: 3.3,
 				trackClearance: 0.9,
 				maxLateralAcceleration: 1,
+				// Peralte. Desde la 1.7 la velocidad en curva NO sale de
+				// maxLateralAcceleration sino de
+				//     v = sqrt((peralte + insuficiencia) / 150 x radio)
+				// con las cotas por vehículo en maxCantMm y maxCantDeficiencyMm
+				// (1 m/s² equivale a 150 mm de peralte o de insuficiencia). Sin
+				// declararlas el motor respalda cada una por su lado: el peralte con
+				// CANT_MAX_APPLIED_MM = 150 mm y la insuficiencia con
+				// maxLateralAcceleration x 150 (getCantDeficiencyMm). Para estos
+				// cuatro tipos serían 300 mm, o sea 2,00 m/s² efectivos (1,90 en el
+				// ML), por encima de todo lo vanilla salvo cercanías. Ojo: esto NO
+				// jubila maxLateralAcceleration. La vía sin cantEnabled (todo lo
+				// construido antes de la 1.7) sigue con el modelo legacy, que es
+				// sqrt(maxLateralAcceleration x radio) en getMaxSpeedForRadiusAndSlope.
+				// Criterio propio: 120 mm es peralte de metro urbano, coherente con
+				// las curvas históricas de 90 m de L1-L5; 100 mm de insuficiencia
+				// queda por debajo del 1,0 m/s² (=150 mm) excepcional de las ETI.
+				// El motor ya fuerza peralte 0 en andén (CANT_STATION_MAX_MM).
+				maxCantMm: 120,
+				maxCantDeficiencyMm: 100,
 				minTurnRadius: 90,
 				minStationTurnRadius: 300,
 				maxSlopePercentage: 5.2,
@@ -344,9 +368,15 @@
 				trainOperationalCostPerHour: 250,
 				carOperationalCostPerHour: 25,
 				stopTimeSeconds: 22,
+				turnaroundTimeSeconds: 60,
 				parallelTrackSpacing: 3.6,
 				trackClearance: 1,
 				maxLateralAcceleration: 1,
+				// Paridad con heavy-metro (150/110): red moderna de gran perfil,
+				// trazada con radio de proyecto de 300 m. Ver la nota del peralte
+				// en el tipo de gálibo estrecho.
+				maxCantMm: 150,
+				maxCantDeficiencyMm: 110,
 				minTurnRadius: 250,
 				minStationTurnRadius: 300,
 				maxSlopePercentage: 4.0,
@@ -366,7 +396,7 @@
 			id: "madrid-metro-ligero",
 			name: "Metro Ligero",
 			description:
-				"Metro Ligero de Madrid (ML1-ML3). Basado en el Alstom Citadis 302: unidades articuladas de 32,16 m y 2,40 m de ancho (más estrechas que el Citadis estándar para el gálibo madrileño), 186 plazas por unidad, en simple o doble composición, 70 km/h y 750 V. Radio mínimo de 25 m, muy por debajo de los 90 m de las curvas más cerradas del metro, y rampas de hasta 6,5% (estimación: los Citadis admiten del 6 al 8%, pero no hay cifra oficial publicada de ML1-ML3). Puede circular en superficie compartiendo calle y cruzar a nivel.",
+				"Metro Ligero de Madrid (ML1-ML3). Basado en el Alstom Citadis 302: unidades articuladas de 32,16 m y 2,40 m de ancho (más estrechas que el Citadis estándar para el gálibo madrileño), 186 plazas por unidad, en simple o doble composición, 70 km/h y 750 V. Radio mínimo de 25 m, muy por debajo de los 90 m de las curvas más cerradas del metro, y rampas de hasta 6,5% (estimación: los Citadis admiten del 6 al 8%, pero no hay cifra oficial publicada de ML1-ML3). Circula en superficie por plataforma reservada —segregada, no en tráfico mixto— y cruza a nivel.",
 			stats: {
 				maxAcceleration: 1.03,
 				maxDeceleration: 1.5,
@@ -386,24 +416,52 @@
 				trainOperationalCostPerHour: 130,
 				carOperationalCostPerHour: 20,
 				stopTimeSeconds: 15,
+				turnaroundTimeSeconds: 90,
 				parallelTrackSpacing: 3.0,
 				trackClearance: 0.6,
 				maxLateralAcceleration: 0.9,
+				// Paridad con light-rail (100/115). Ver la nota del peralte en el
+				// tipo de gálibo estrecho.
+				maxCantMm: 100,
+				maxCantDeficiencyMm: 115,
 				minTurnRadius: 25,
 				minStationTurnRadius: 60,
 				maxSlopePercentage: 6.5,
-				trackMaintenanceCostPerMeter: 240,
-				stationMaintenanceCostPerYear: 50000,
+				// Mantenimiento a la par de light-rail (280 / 200.000), el tipo que
+				// la 1.7 añadió a partir del S-700 de Seattle. Hasta la v0.12.0 la
+				// referencia era el tram (240 / 50.000), que es un tranvía urbano de
+				// tráfico mixto y no se parece al Metro Ligero. El coste de
+				// CONSTRUCCIÓN sigue siendo criterio de equilibrio del pack y NO se
+				// lleva a los 40 M€ de light-rail: una estación de superficie de
+				// ML1-ML3 no es una del Link.
+				trackMaintenanceCostPerMeter: 280,
+				stationMaintenanceCostPerYear: 200000,
 				tphLimit: 40,
 				crossoverSpeed: 6.7
 			},
 			compatibleTrackTypes: ["madrid-metro-ligero"],
 			appearance: { color: "#78be20" },
-			allowAtGradeRoadCrossing: true,
+			// ML1-ML3 circulan SIEMPRE en plataforma reservada —segregada entre
+			// calzadas, no en tráfico mixto—, así que cruzan a nivel pero no
+			// comparten carril. El allowAtGradeRoadCrossing: true de versiones
+			// anteriores era herencia del tram y un error de dato; la 1.7 formaliza
+			// la distinción (su light-rail tampoco lo declara y deja el tráfico
+			// mixto para el futuro tipo de vía de tranvía).
 			allowGradeCrossing: true,
-			gradeCrossingBaseCost: 150000,
-			gradeCrossingMaintenancePerDay: 2500,
-			gradeCrossingTphLimit: { highway: null, major: 20, medium: 20, minor: 20 },
+			gradeCrossingBaseCost: 300000,
+			gradeCrossingMaintenancePerDay: 3000,
+			gradeCrossingTphLimit: { highway: null, major: 32, medium: 32, minor: 32 },
+			// Campo nuevo de la 1.7, abierto a los tipos de mods: velocidad máxima
+			// al pisar un paso a nivel. 15,65 m/s (56 km/h) es la cifra de light-rail.
+			// Sin declarar highway: el panel filtra las clases no declaradas y
+			// applyGradeCrossingSpeedLimits ignora las zonas cuya clase no figura.
+			gradeCrossingSpeedLimit: { major: 15.65, medium: 15.65, minor: 15.65 },
+			// Va emparejado con el anterior: buildGradeCrossingSpeedZones abre la zona
+			// de reducción a +-esta distancia del cruce. Sin declararlo cae en 0 y la
+			// zona degenera en un punto, con lo que el límite solo pisa el segmento que
+			// contiene el cruce en vez de la aproximación entera: el tren llegaría
+			// lanzado y frenaría encima. 150 m es la cifra de light-rail.
+			gradeCrossingSpeedLimitApproachDistance: 150,
 			portalCost: 10000000,
 			rampCost: 3000000,
 			maxOverpassSpan: 60
@@ -437,12 +495,20 @@
 				trainOperationalCostPerHour: 520,
 				carOperationalCostPerHour: 52,
 				stopTimeSeconds: 40,
+				turnaroundTimeSeconds: 120,
 				parallelTrackSpacing: 3.808,
 				trackClearance: 1.86,
 				// 1.0 y no 1.68: las ETI/ADIF dan 0,65 m/s² de insuficiencia de peralte
 				// normal y 1,0 excepcional. El 1.68 heredado era el único outlier del pack
 				// (los cuatro tipos vanilla van de 0,8 a 1,0).
 				maxLateralAcceleration: 1.0,
+				// Peralte: 160 mm es el máximo de ADIF en ancho ibérico con tráfico
+				// mixto; los 180 del commuter-rail vanilla son el tope ETI, solo
+				// viable donde se garantiza que ningún tren para en curva. La
+				// insuficiencia de 150 mm es el equivalente en milímetros del 1,0
+				// m/s² excepcional de las ETI que ya usa maxLateralAcceleration.
+				maxCantMm: 160,
+				maxCantDeficiencyMm: 150,
 				minTurnRadius: 250,
 				minStationTurnRadius: 300,
 				maxSlopePercentage: 3.5,
@@ -2700,6 +2766,19 @@
 		return real.filter((r) => dentro.has(r.id));
 	}
 
+	// Un blueprint de la 1.7 es una copia de {tracks, trackGroups, signals} con su
+	// trackType dentro, guardada aparte de la vía construida. Devuelve el nombre de
+	// los que llevan vía de alguno de los tipos dados.
+	function blueprintsConTipo(data, tipos) {
+		const bps = Array.isArray(data && data.savedBlueprints) ? data.savedBlueprints : [];
+		const out = [];
+		for (const bp of bps) {
+			const vias = (bp && bp.tracks) || [];
+			if (vias.some((t2) => t2 && tipos.has(t2.trackType))) out.push(bp.name || bp.id || "?");
+		}
+		return out;
+	}
+
 	function planMigration(saveObj, routeId, targetId, trainTypes, opts) {
 		const target = trainTypes[targetId];
 		const before = saveObj.mainSave ? saveObj.mainSave.data : saveObj.data;
@@ -2874,13 +2953,20 @@
 			}
 		}
 
+		// Blueprints (1.7) guardados con vía del tipo que dejamos atrás. No se
+		// tocan —retiparlos sin conformar su geometría sería justo lo que este
+		// pack le critica al conversor del juego—, pero sí se avisa: al colocarlos
+		// seguirían construyendo vía del tipo antiguo.
+		const tiposOrigen = new Set(rutas.map((r) => r.trainType).filter(Boolean));
+		const blueprints = blueprintsConTipo(before, tiposOrigen);
+
 		return {
 			ok: post.ok && pre2.ok,
 			errors: [...post.errors, ...pre2.errors],
 			warnings: pre.warnings,
 			data: copy,
 			group: rutas.map((r) => r.bullet),
-			reductions, bretelles,
+			reductions, bretelles, blueprints,
 			platforms, retype, geom, service, blocking, tooShort,
 			diff: post.summary
 		};
@@ -2998,6 +3084,28 @@
 			} finally { setBusy(null); }
 		}
 
+		// Motivos por los que una partida no se puede migrar. Devuelve el texto ya
+		// traducido, o null si se puede seguir. Lo usan las dos vías de entrada
+		// (lista de partidas y fichero suelto).
+		function motivoRechazo(data) {
+			const hh = (data && data.mainSave) || data || {};
+			const d = hh.data || {};
+			// El motor asume el esquema v3 en adelante (ownedCarsByType,
+			// carsPerTrain…); una partida más vieja se planificaría sobre campos
+			// que no existen. La 1.7 escribe v4 y encaja igual.
+			if (hh.version !== undefined && hh.version < 3) {
+				return t("mig.oldSave").replace("{v}", hh.version);
+			}
+			// Sesión de edición de vía abierta (1.7). trackEditSession guarda un
+			// SNAPSHOT de las vías para poder deshacer o confirmar; si migramos
+			// encima, ese snapshot sigue teniendo la vía SIN migrar y al cerrar la
+			// sesión dentro del juego el jugador restauraría vía del tipo antiguo
+			// sobre una línea ya retipada. El propio juego se niega igual a guardar
+			// o cargar blueprints mientras la sesión está abierta.
+			if (d.trackEditSession) return t("mig.editSession");
+			return null;
+		}
+
 		async function openById(entry) {
 			setBusy(t("mig.reading"));
 			try {
@@ -3009,12 +3117,8 @@
 				// verifica en juego.
 				const hh = res.data.mainSave || res.data;
 				console.log(`${TAG} claves del head recibido:`, Object.keys(hh).join(", "));
-				// El motor asume el esquema v3 (ownedCarsByType, carsPerTrain…); una
-				// partida más vieja se planificaría sobre campos que no existen.
-				if (hh.version !== undefined && hh.version < 3) {
-					setMsg({ bad: true, text: t("mig.oldSave").replace("{v}", hh.version) });
-					return;
-				}
+				const rechazo = motivoRechazo(res.data);
+				if (rechazo) { setMsg({ bad: true, text: rechazo }); return; }
 				setSave(res.data); setPlan(null); setMsg(null);
 			} catch (err) {
 				setMsg({ bad: true, text: String(err && err.message ? err.message : err) });
@@ -3027,6 +3131,8 @@
 			try {
 				const res = await window.electron.loadGameFromFile();
 				if (!res || !res.success || !res.data) throw new Error((res && res.error) || "?");
+				const rechazo = motivoRechazo(res.data);
+				if (rechazo) { setMsg({ bad: true, text: rechazo }); return; }
 				setSave(res.data); setPlan(null); setMsg(null);
 			} catch (err) {
 				setMsg({ bad: true, text: String(err && err.message ? err.message : err) });
@@ -3295,6 +3401,8 @@
 				plan.bretelles.widened + " " + t("mig.widened")));
 			if (plan.bretelles && plan.bretelles.quad > 0) bloque.push(h("p", { key: "quad", className: "text-[11px] text-muted-foreground" },
 				plan.bretelles.quad + " " + t("mig.crossQuad")));
+			bloque.push(lista(t("mig.blueprints"), plan.blueprints,
+				(x) => String(x), "text-muted-foreground"));
 
 			// El cargador llama setTracks sin regenRoutesWithTrackIDs, así que los
 			// stComboTimings (tiempos por parada) no se recalculan al cargar: solo
